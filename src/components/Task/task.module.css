@@ -1,0 +1,65 @@
+.task_container {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 16px;
+}
+
+.task_checkbox_container {
+    display: block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.task_checkbox_container input {
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+}
+
+.task_custom_checkbox {
+    --border-color: #999999;
+
+    display: grid;
+    place-items: center;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+}
+
+.task_checkbox_container:hover input~.task_custom_checkbox {
+    --hover-color: hsla(170, 98%, 37%, 0.7);
+    background-color: var(--hover-color);
+}
+
+.task_checkbox_container input:checked~.task_custom_checkbox {
+    --hover-color: #02BC9C;
+    background-color: var(--hover-color);
+    border: none;
+}
+
+.task_label {
+    --label-color: #000000;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--label-color);
+}

@@ -1,0 +1,12 @@
+.groups_container {
+
+    --border-color: #DDDDDD;
+
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.groups_container> :last-child {
+    border: none;
+}
