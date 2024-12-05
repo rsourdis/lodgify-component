@@ -27,12 +27,14 @@ const Task = ({ groupIndex, taskIndex, description, checked, setgroupedTasks }: 
   return (
     <div className={styles.task_container}>
       <label className={styles.task_checkbox_container}>
-        <input type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
+        <input type='checkbox' checked={isChecked} onChange={handleCheckboxChange} aria-checked={isChecked} id={`task-checkbox-${groupIndex}-${taskIndex}`} />
         <span className={`${styles.task_custom_checkbox} ${isChecked ? 'true' : ''}`} aria-hidden='true'>
           {isChecked && <TaskCheck />}
         </span>
       </label>
-      <label className={styles.task_label}>{description}</label>
+      <label htmlFor={`task-checkbox-${groupIndex}-${taskIndex}`} className={styles.task_label}>
+        {description}
+      </label>
     </div>
   )
 }

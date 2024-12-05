@@ -24,10 +24,10 @@ const TaskGroup = ({ group, groupIndex, setgroupedTasks, isExpanded, setexpanded
 
   return (
     <div className={styles.group_container}>
-      <div className={styles.group_summary_container} onClick={handleShowGroupContent}>
+      <div className={styles.group_summary_container} onClick={handleShowGroupContent} aria-expanded={isExpanded} aria-controls={`group-content-${groupIndex}`}>
         <div className={styles.group_title_container}>
           <GroupIcon isGroupCompleted={isGroupCompleted} />
-          <label className={`${styles.group_title} ${isGroupCompleted ? styles.group_is_completed : ''}`}>{group.name}</label>
+          <span className={`${styles.group_title} ${isGroupCompleted ? styles.group_is_completed : ''}`}>{group.name}</span>
         </div>
         <div className={styles.group_button_container}>
           <span className={styles.group_button_label}>{isExpanded ? 'hide' : 'show'}</span>
@@ -35,7 +35,7 @@ const TaskGroup = ({ group, groupIndex, setgroupedTasks, isExpanded, setexpanded
         </div>
       </div>
       {isExpanded && (
-        <div className={styles.group_content_container}>
+        <div className={styles.group_content_container} role='region' id={`group-content-${groupIndex}`} aria-labelledby={`${group.name}-content-${groupIndex}`}>
           {group.tasks.map((task, index) => (
             <Task key={`task-${index}`} description={task.description} checked={task.checked} groupIndex={groupIndex} taskIndex={index} setgroupedTasks={setgroupedTasks} />
           ))}

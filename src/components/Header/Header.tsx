@@ -27,7 +27,7 @@ const Header = ({ groupedTasks }: Props) => {
 
   return (
     <div className={styles.header_container}>
-      <h3 className={styles.header_title}>Lodgify Grouped Tasks</h3>
+      <h1 className={styles.header_title}>Lodgify Grouped Tasks</h1>
       <ProgressBar progress={progress} />
     </div>
   )

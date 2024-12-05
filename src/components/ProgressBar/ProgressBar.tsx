@@ -6,7 +6,7 @@ type Props = {
 
 const ProgressBar = ({ progress }: Props) => {
   return (
-    <div className={styles.progress_container}>
+    <div role='progressbar' aria-label='Progress Bar' aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
       <div className={styles.progress_bar} style={{ width: `${progress}%` }}>
         {progress > 0 && <p className={styles.progress_label}>{progress.toFixed(0)}%</p>}
       </div>
